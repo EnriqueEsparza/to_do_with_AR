@@ -3,8 +3,9 @@ ENV['RACK_ENV'] = 'test'
 require('rspec')
 require('pg')
 #require('pry')
-#require('./lib/list')
+require('./lib/list')
 require('./lib/task')
+
 
 
 RSpec.configure do |config|
@@ -12,5 +13,9 @@ RSpec.configure do |config|
     Task.all().each() do |task|
       task.destroy()
     end
+    List.all().each do |list|
+      list.destroy()
+    end
+
   end
 end
